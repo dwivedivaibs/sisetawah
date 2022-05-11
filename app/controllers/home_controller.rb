@@ -87,7 +87,7 @@ class HomeController < ApplicationController
     
   end
   def committees
-    
+    @document = Document.find_by(name: "committees", is_active: true)
   end
 
   def affiliation_letter
