@@ -13,7 +13,7 @@ class Document < ApplicationRecord
     ["Academic calendar", "academic_calendar"],
     ["Book List with Declaration", "book_list"],
     ["Last three year results", "last_three_year_results"],
-    ["Norms of fixing fee", "norms_of_fixing_fee"]
+    ["Norms of fixing fee", "norms_of_fixing_fee"],
     ["Society/Trust Member", "committees"]
   ]
 
