@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   get 'home/feedback'
   get 'home/about_us'
   get 'home/vacancy'
+  get 'home/ptm'
 
   resource :gallery_images, only: :show
   resource :gallery_videos, only: :show
