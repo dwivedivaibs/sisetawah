@@ -20,8 +20,8 @@ class HomeController < ApplicationController
   	
   end
 
-  def oasis_updated
-  	
+  def oasis
+  	@document = Document.find_by(name: "oasis", is_active: true)
   end
   def result_date_sheet
   	

@@ -15,7 +15,8 @@ class Document < ApplicationRecord
     ["Last three year results", "last_three_year_results"],
     ["Norms of fixing fee", "norms_of_fixing_fee"],
     ["Society/Trust Member", "committees"],
-    ["Parents Teacher Association", "ptm"]
+    ["Parents Teacher Association", "ptm"],
+    ["OASIS Report", "oasis"]
   ]
 
   validates :name, presence: true

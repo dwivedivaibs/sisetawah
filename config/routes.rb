@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'home/committee'
   get 'home/committees'
   get 'home/faculty'
-  get 'home/oasis_updated'
+  get 'home/oasis'
   get 'home/result_date_sheet'
   get 'home/book_list'
   get 'home/admission_procedure'
