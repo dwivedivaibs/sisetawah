@@ -16,7 +16,8 @@ class Document < ApplicationRecord
     ["Norms of fixing fee", "norms_of_fixing_fee"],
     ["Society/Trust Member", "committees"],
     ["Parents Teacher Association", "ptm"],
-    ["OASIS Report", "oasis"]
+    ["OASIS Report", "oasis"],
+    ["Public Disclosure", "public_disclosure"]
   ]
 
   validates :name, presence: true

@@ -23,6 +23,11 @@ class HomeController < ApplicationController
   def oasis
   	@document = Document.find_by(name: "oasis", is_active: true)
   end
+
+  def public_disclosure
+    @document = Document.find_by(name: "oasis", is_active: true)
+  end
+
   def result_date_sheet
   	
   end
