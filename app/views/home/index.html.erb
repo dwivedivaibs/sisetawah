@@ -18,35 +18,35 @@
 					    </ol>
 					    <div class="carousel-inner" role="listbox">
 					      <!-- Slide One - Set the background image for this slide in the line below -->
-					      <div class="carousel-item active" style='background-image: url("<%= asset_url('building1.jpg')%>")'>
+	              <div class="carousel-item active" style='background-image: url("<%= @slider_images.present? ? asset_url(@slider_images.first.image.url) : asset_url('building1.jpg') %>")'>
 					        <div class="carousel-caption d-none d-md-block">
 					          <!-- <h2 class="display-4">First Slide</h2> -->
 					          <!-- <p class="lead">This is a description for the first slide.</p> -->
 					        </div>
 					      </div>
 					      <!-- Slide Two - Set the background image for this slide in the line below -->
-					      <div class="carousel-item" style='background-image: url("<%= asset_url('slide4.jpg')%>")'>
+					      <div class="carousel-item" style='background-image: url("<%= (@slider_images.present? && @slider_images.count >= 2) ? asset_url(@slider_images.second.image.url) : asset_url('slide4.jpg') %>")'>
 					        <div class="carousel-caption d-none d-md-block">
 					          <!-- <h2 class="display-4">Second Slide</h2> -->
 					          <!-- <p class="lead">This is a description for the second slide.</p> -->
 					        </div>
 					      </div>
 					      <!-- Slide Three - Set the background image for this slide in the line below -->
-					      <div class="carousel-item" style='background-image: url("<%= asset_url('slide5.jpg')%>")'>
+					      <div class="carousel-item" style='background-image: url("<%= @slider_images.present? && @slider_images.count >= 3 ? asset_url(@slider_images.third.image.url) : asset_url('slide5.jpg') %>")'>
 					        <div class="carousel-caption d-none d-md-block">
 					          <!-- <h2 class="display-4">Third Slide</h2> -->
 					          <!-- <p class="lead">This is a description for the third slide.</p> -->
 					        </div>
 					      </div>
 					      <!-- Slide four - Set the background image for this slide in the line below -->
-					      <div class="carousel-item" style='background-image: url("<%= asset_url('logo.jpg')%>");background-size: contain;'>
+					      <div class="carousel-item"style='background-image: url("<%= @slider_images.present? && @slider_images.count >= 4 ? asset_url(@slider_images.fourth.image.url) : asset_url('logo.jpg') %>");background-size: contain;'>
 					        <div class="carousel-caption d-none d-md-block">
 					          <!-- <h2 class="display-4">Third Slide</h2> -->
 					          <!-- <p class="lead">This is a description for the third slide.</p> -->
 					        </div>
 					      </div>
 					      <!-- Slide five - Set the background image for this slide in the line below -->
-					      <div class="carousel-item" style='background-image: url("<%= asset_url('slide3.jpg')%>")'>
+					      <div class="carousel-item" style='background-image: url("<%= @slider_images.present? && @slider_images.count >= 5 ? asset_url(@slider_images[4].image.url) : asset_url('slide3.jpg') %>")'>
 					        <div class="carousel-caption d-none d-md-block">
 					          <!-- <h2 class="display-4">Third Slide</h2> -->
 					          <!-- <p class="lead">This is a description for the third slide.</p> -->
@@ -75,9 +75,13 @@
 													<div class="elementor-element elementor-element-7c6b69c elementor-widget elementor-widget-text-editor">
 														<div class="elementor-widget-container">
 															<div class="elementor-text-editor elementor-clearfix" style="line-height: 25px;">
-																<p>To empowering parents and society Shakuntlam International School strives for excellence in quality School education that provides diverse, learner centric and laissez-faire environment conductive for every individual student to realize his potential to the fullest to become an enlightened, Vibrant and productive member of the society with strong ethical values and  plurastic ethos.</p>
-																<p>Object of the school is to make the students independent. So, that they become the asset for their family & Society. The practice of knowledge with discipline leads to success and thus to a happier & Complete life, which in turn shall lead to a happier world.</p>
-																<p>Our major concern is all round development of the child by maintaining quality Education. The deep rooted belief of the school is that every child is full of talents. We need to shape them by providing platform to prove them and proper guidance. Moto of the school Let noble thoughts come to us from every side. it reflects it. Due to ignorance, number of gems remains unpolished and we lose our precious gems which could shine and show the lights to others as well.</p>
+																<% if @welcome_section.present? %>
+											            <p style="font-size: 14px; text-align:justify"><%= raw @welcome_section.description %></p>
+											          <% else %>
+																	<p>To empowering parents and society Shakuntlam International School strives for excellence in quality School education that provides diverse, learner centric and laissez-faire environment conductive for every individual student to realize his potential to the fullest to become an enlightened, Vibrant and productive member of the society with strong ethical values and  plurastic ethos.</p>
+																	<p>Object of the school is to make the students independent. So, that they become the asset for their family & Society. The practice of knowledge with discipline leads to success and thus to a happier & Complete life, which in turn shall lead to a happier world.</p>
+																	<p>Our major concern is all round development of the child by maintaining quality Education. The deep rooted belief of the school is that every child is full of talents. We need to shape them by providing platform to prove them and proper guidance. Moto of the school Let noble thoughts come to us from every side. it reflects it. Due to ignorance, number of gems remains unpolished and we lose our precious gems which could shine and show the lights to others as well.</p>
+																<% end %>
 															</div>
 														</div>
 													</div>
@@ -126,12 +130,18 @@
 											<div class="elementor-widget-wrap">
 												<div class="elementor-element elementor-element-66b7a9fc elementor-widget elementor-widget-heading">
 													<div class="elementor-widget-container">
-														<h3 class="elementor-heading-title elementor-size-large">VACCINATION</h3>
+														<h3 class="elementor-heading-title elementor-size-large"><%= @highlight_title_one.present? ? (raw @highlight_title_one) : "VACCINATION" %></h3>
 													</div>
 												</div>
 												<div class="elementor-element elementor-element-4eaaceb elementor-widget elementor-widget-text-editor">
 													<div class="elementor-widget-container">
-														<div class="elementor-text-editor elementor-clearfix"><p>Vaccination for under 15 to 18 done in Shakuntlam International School. Stay safe and move ahead to success.</p></div>
+														<div class="elementor-text-editor elementor-clearfix">
+															<% if @highlight_one.present? %>
+																<p><%= raw @highlight_one.description %></p>
+															<% else %>
+																<p>Vaccination for under 15 to 18 done in Shakuntlam International School. Stay safe and move ahead to success.</p>
+															<% end %>
+														</div>
 													</div>
 												</div>
 												<div class="elementor-element elementor-element-4f1868c elementor-align-center elementor-widget elementor-widget-button">
@@ -154,7 +164,11 @@
 												<div class="elementor-element elementor-element-3259b390 elementor-widget elementor-widget-image">
 													<div class="elementor-widget-container">
 														<div class="elementor-image">
-															<%= image_tag('home-2.jpg') %>
+															<% if @highlights_images.first.present? %>
+									              <%= image_tag(@highlights_images.first.image.url) %>
+									            <% else %>
+																<%= image_tag('home-2.jpg') %>
+									            <% end %>
 														</div>
 													</div>
 												</div>
@@ -173,7 +187,11 @@
 												<div class="elementor-element elementor-element-63da33e8 elementor-widget elementor-widget-image">
 													<div class="elementor-widget-container">
 														<div class="elementor-image">
-															<%= image_tag('home-3.jpg') %>
+															<% if @highlights_images.second.present? %>
+									              <%= image_tag(@highlights_images.second.image.url) %>
+									            <% else %>
+																<%= image_tag('home-3.jpg') %>
+									            <% end %>
 														</div>
 													</div>
 												</div>
@@ -186,12 +204,18 @@
 												<div class="elementor-element elementor-element-24b02b4d elementor-widget elementor-widget-heading">
 													<br><br><br>
 													<div class="elementor-widget-container">
-														<h3 class="elementor-heading-title elementor-size-large">Merry Christmas Celebration</h3>
+														<h3 class="elementor-heading-title elementor-size-large"><%= @highlight_title_two.present? ? (raw @highlight_title_two) : "Merry Christmas Celebration" %></h3>
 													</div>
 												</div>
 												<div class="elementor-element elementor-element-22db3582 elementor-widget elementor-widget-text-editor">
 													<div class="elementor-widget-container">
-														<div class="elementor-text-editor elementor-clearfix"><p>Shakuntalam International public School wishing you a Merry Christmas 🎂🎂filled with good times and even better 💐💐 may Santa bring all the presents you desire😊😊 especially if it comes with the trunk and four tires.Merry Christmas</p></div>
+														<div class="elementor-text-editor elementor-clearfix">
+															<% if @highlight_two.present? %>
+																<p><%= raw @highlight_two.description %></p>
+															<% else %>
+																<p>Shakuntalam International public School wishing you a Merry Christmas 🎂🎂filled with good times and even better 💐💐 may Santa bring all the presents you desire😊😊 especially if it comes with the trunk and four tires.Merry Christmas</p>
+															<% end %>
+														</div>
 													</div>
 												</div>
 												<div class="elementor-element elementor-element-0baca10 elementor-align-center elementor-widget elementor-widget-button">
@@ -223,12 +247,18 @@
 											<div class="elementor-widget-wrap">
 												<div class="elementor-element elementor-element-23738ceb elementor-widget elementor-widget-heading">
 													<div class="elementor-widget-container">
-														<h3 class="elementor-heading-title elementor-size-large">ANNUAL QUIZ FEST</h3>
+														<h3 class="elementor-heading-title elementor-size-large"><%= @highlight_title_three.present? ? (raw @highlight_title_three) : "ANNUAL QUIZ FEST" %></h3>
 													</div>
 												</div>
 												<div class="elementor-element elementor-element-465caf74 elementor-widget elementor-widget-text-editor">
 													<div class="elementor-widget-container">
-														<div class="elementor-text-editor elementor-clearfix"><p>School organised play the mythology quiz as a part of their Annual Quiz Fest</p></div>
+														<div class="elementor-text-editor elementor-clearfix">
+															<% if @highlight_three.present? %>
+																<p><%= raw @highlight_three.description %></p>
+															<% else %>
+																<p>School organised play the mythology quiz as a part of their Annual Quiz Fest</p>
+															<% end %>
+														</div>
 													</div>
 												</div>
 												<div class="elementor-element elementor-element-3ee8498 elementor-align-center elementor-widget elementor-widget-button">
@@ -251,7 +281,11 @@
 												<div class="elementor-element elementor-element-29d1adce elementor-widget elementor-widget-image">
 													<div class="elementor-widget-container">
 														<div class="elementor-image">
-															<%= image_tag('home-4.jpg') %>
+															<% if @highlights_images.third.present? %>
+									              <%= image_tag(@highlights_images.third.image.url) %>
+									            <% else %>
+																<%= image_tag('home-4.jpg') %>
+									            <% end %>
 														</div>
 													</div>
 												</div>
@@ -286,12 +320,20 @@
 										<div class="row">
 										  <div class="column">
 										    <div class="card">
-										    	<%= image_tag('manager1.jpg')%>
+										    	<% if @manager_photo.present? %>
+							              <%= image_tag(@manager_photo.image.url) %>
+							            <% else %>
+														<%= image_tag('manager1.jpg') %>
+							            <% end %>
 										      <div class="container">
 										      	<center>
-											        <h2>MRS. SARITA BHADAURIA</h2>
+											        <h2><%= @manager_name.present? ? (raw @manager_name.description) : "MRS. SARITA BHADAURIA" %></h2>
 											        <p class="title">Chairperson</p>
-											        <p>Warm Welcome to the Shakuntlam,  As chairperson of the School I convey my immense pleasure in getting an opportunity to work and fruitfully interact with all staff men members, students and their parents.</p>
+											        <% if @manager_message.present? %>
+											        	<%= raw @manager_message.description.truncate(100) %>
+											        <% else %>
+											        	<p>Warm Welcome to the Shakuntlam,  As chairperson of the School I convey my immense pleasure in getting an opportunity to work and fruitfully interact with all staff men members, students and their parents.</p>
+											        <% end %>
 											        <p><a class="button" href="<%= home_founders_path %>">Show more</a></p>
 											       </center>
 										      </div>
@@ -300,12 +342,20 @@
 
 										  <div class="column">
 										    <div class="card">
-										    	<%= image_tag('manager.jpg')%>
+										    	<% if @director_photo.present? %>
+							              <%= image_tag(@director_photo.image.url) %>
+							            <% else %>
+														<%= image_tag('manager.jpg') %>
+							            <% end %>
 										      <div class="container">
 										      	<center>
-											        <h2>MR. ASHISH KUMAR SINGH</h2>
+											        <h2><%= @director_name.present? ? (raw @director_name.description) : "MR. ASHISH KUMAR SINGH" %></h2>
 											        <p class="title">Vice chairman & Managing Trustee</p>
-											        <p>For us you and your child is the most valuable in our life. Your whole life you have worked so hard. Only so that you can provide the best to your kids and you always dream that they grow up to be successful and respected citizens of the Country. </p>
+											        <% if @director_message.present? %>
+											        	<%= raw @director_message.description.truncate(100) %>
+											        <% else %>
+											        	<p>For us you and your child is the most valuable in our life. Your whole life you have worked so hard. Only so that you can provide the best to your kids and you always dream that they grow up to be successful and respected citizens of the Country. </p>
+											        <% end %>
 											        <p><a class="button" href="<%= home_founders_path %>">Show more</a></p>
 											       </center>
 										      </div>
@@ -314,12 +364,20 @@
 										  
 										  <div class="column">
 										    <div class="card">
-										    	<%= image_tag('principal.jpg')%>
+										    	<% if @principal_photo.present? %>
+							              <%= image_tag(@principal_photo.image.url) %>
+							            <% else %>
+														<%= image_tag('principal.jpg') %>
+							            <% end %>
 										      <div class="container">
 										      	<center>
-											        <h2>MRS. VARSHA SINGH</h2>
+											        <h2><%= @principal_name.present? ? (raw @principal_name.description) : "MRS. VARSHA SINGH" %></h2>
 											        <p class="title">principal</p>
-											        <p>I love teaching and as I start to pen down y thoughts, a lot comes to my mind which I would like to share with you all . I express my gratitude to the parents who have put their faith in us to educate their part of life, their kids. </p>
+											        <% if @principal_message.present? %>
+											        	<%= raw @principal_message.description.truncate(100) %>
+											        <% else %>
+											        	<p>I love teaching and as I start to pen down y thoughts, a lot comes to my mind which I would like to share with you all . I express my gratitude to the parents who have put their faith in us to educate their part of life, their kids. </p>
+											        <% end %>
 											        <p><a class="button" href="<%= home_principal_message_path %>">Show more</a></p>
 											       </center>
 										      </div>

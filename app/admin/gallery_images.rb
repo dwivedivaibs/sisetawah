@@ -5,7 +5,7 @@ ActiveAdmin.register GalleryImage do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :title, :description, :image, :is_active
+  permit_params :title, :description, :image, :is_active, :section
   #
   # or
   #
@@ -40,7 +40,7 @@ ActiveAdmin.register GalleryImage do
   form do |f|
     f.inputs do
       f.input :title
-      f.input :description, as: :text
+      f.input :section, :label => 'Select Section Type', :as => :select, :collection => GalleryImage::SECTION
       f.input :image
       f.input :is_active
       hr

@@ -13,13 +13,17 @@
                       <div class="elementor-element elementor-element-55c4b485 elementor-widget elementor-widget-image" data-id="55c4b485" data-element_type="widget" data-widget_type="image.default">
                         <div class="elementor-widget-container">
                           <div class="elementor-image">
-                            <img src="/assets/principal.jpeg" class="attachment-full size-full" alt="" loading="lazy" width="332" height="331">											
+                            <% if @principal_photo.present? %>
+                              <%= image_tag(@principal_photo.image.url, class: "attachment-full size-full", loading: "lazy", width:"332", height: "331") %>
+                            <% else %>
+                              <img src="/assets/principal.jpeg" class="attachment-full size-full" alt="" loading="lazy" width="332" height="331">
+                            <% end %>
                           </div>
                         </div>
                       </div>
                       <div class="elementor-element elementor-element-7f47409 elementor-widget elementor-widget-heading" data-id="7f47409" data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
-                          <h2 class="elementor-heading-title elementor-size-default">VARSHA  SINGH<br></h2>
+                          <h2 class="elementor-heading-title elementor-size-default"><%= @principal_name.present? ? (raw @principal_name.description) : "VARSHA  SINGH" %><br></h2>
                           <h5>PRINCIPAL</h5>
                         </div>
                       </div>
@@ -42,29 +46,35 @@
                                 <div class="elementor-widget-wrap">
                                   <div class="elementor-element elementor-element-1dea699b elementor-widget elementor-widget-text-editor" data-id="1dea699b" data-element_type="widget" data-widget_type="text-editor.default">
                                     <div class="elementor-widget-container">
-                                      <div class="elementor-text-editor elementor-clearfix">
-                                        <p style="line-height: 25px;">
-                                          <h3 style="font-weight: bold;">
-                                            Dear Parents and Students
+                                      <% if @principal_message.present? %>
+                                        <div class="elementor-text-editor elementor-clearfix">
+                                          <%= raw @principal_message.description %>
+                                        </div>
+                                      <% else %>
+                                        <div class="elementor-text-editor elementor-clearfix">
+                                          <p style="line-height: 25px;">
+                                            <h3 style="font-weight: bold;">
+                                              Dear Parents and Students
+                                            </h3>
+                                            <br>
+                                            <p>I  love teaching and as I start to pen down y thoughts, a lot comes to my mind which I would like to share with you all . I express my gratitude to the parents who have put their faith in us to educate their part of life, their kids. This is a huge responsibilities and I assure you that we are doing our best to live up to your belief in us.</p>
+                                            <p>Education has power to change lives. On the surface of life, education is a fruit of School Tree. All of us must take the taste of this unique Fruit, Education seeks to nurture ethical development, inculcating the values, attitudes and skills required for living in harmony with oneself and with others including nature. It embodies personality development with the qualities of love, hope, courage, risk taking, and humanity. It encompasses respect for human rights, justice, tolerance, co-operation, social responsibility and respect for cultural diversity.</p>
+                                            <p>Through the nib of this pen I would like to say our parents and teachers that each child is unique and  has an innate capacity for something special, which needs to be nurtured and formed into character. At the critical juncture, there is a strong need to negate the undesirable impacts of changes and inculcate the right attitude and behavior in our children. We are training them to view life holistically and creatively face challenges in life with a positive attitude, develop skills in responding to emergencies.</p>
+                                          </p><br>
+                                          <br>
+                                          <h3 style="font-weight: bold; color: red;font-style: italic;">
+                                            “Education is shared commitment between dedicated teachers, motivated students and enthusiastic parent with high expectations”.-BOB BEAUPREZ”
                                           </h3>
-                                          <br>
-                                          <p>I  love teaching and as I start to pen down y thoughts, a lot comes to my mind which I would like to share with you all . I express my gratitude to the parents who have put their faith in us to educate their part of life, their kids. This is a huge responsibilities and I assure you that we are doing our best to live up to your belief in us.</p>
-                                          <p>Education has power to change lives. On the surface of life, education is a fruit of School Tree. All of us must take the taste of this unique Fruit, Education seeks to nurture ethical development, inculcating the values, attitudes and skills required for living in harmony with oneself and with others including nature. It embodies personality development with the qualities of love, hope, courage, risk taking, and humanity. It encompasses respect for human rights, justice, tolerance, co-operation, social responsibility and respect for cultural diversity.</p>
-                                          <p>Through the nib of this pen I would like to say our parents and teachers that each child is unique and  has an innate capacity for something special, which needs to be nurtured and formed into character. At the critical juncture, there is a strong need to negate the undesirable impacts of changes and inculcate the right attitude and behavior in our children. We are training them to view life holistically and creatively face challenges in life with a positive attitude, develop skills in responding to emergencies.</p>
-                                        </p><br>
-                                        <br>
-                                        <h3 style="font-weight: bold; color: red;font-style: italic;">
-                                          “Education is shared commitment between dedicated teachers, motivated students and enthusiastic parent with high expectations”.-BOB BEAUPREZ”
-                                        </h3>
-                                        <br><br>
-                                        <b>
-                                          Sincerely Yours
-                                          <br>
-                                          VARSHA  SINGH
-                                          <br>
-                                          Principal
-                                        </b>
-                                      </div>
+                                          <br><br>
+                                          <b>
+                                            Sincerely Yours
+                                            <br>
+                                            VARSHA  SINGH
+                                            <br>
+                                            Principal
+                                          </b>
+                                        </div>
+                                      <% end %>
                                     </div>
                                   </div>
                                 </div>

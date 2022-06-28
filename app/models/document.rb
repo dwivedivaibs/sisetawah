@@ -14,10 +14,15 @@ class Document < ApplicationRecord
     ["Book List with Declaration", "book_list"],
     ["Last three year results", "last_three_year_results"],
     ["Norms of fixing fee", "norms_of_fixing_fee"],
-    ["Society/Trust Member", "committees"],
     ["Parents Teacher Association", "ptm"],
     ["OASIS Report", "oasis"],
-    ["Public Disclosure", "public_disclosure"]
+    ["Public Disclosure", "public_disclosure"],
+    ["Land Certificate", "land_certificate"],
+    ["Staff Details", "staff_details"],
+    ["Official of Different Committee of the School", "committee"],
+    ["School committees stracture", "committee_stracture"],
+    ["PROSPECTUS", "prospectus"],
+    ["Student Details", "student_details"]
   ]
 
   validates :name, presence: true

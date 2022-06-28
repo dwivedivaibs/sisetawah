@@ -134,6 +134,12 @@ GEM
       aws-sdk-s3 (~> 1.0)
       carrierwave (>= 0.7, < 2.1)
     childprocess (3.0.0)
+    ckeditor (4.2.4)
+      cocaine
+      orm_adapter (~> 0.5.0)
+    climate_control (0.2.0)
+    cocaine (0.6.0)
+      terrapin (= 0.6.0)
     concurrent-ruby (1.1.8)
     crass (1.0.6)
     devise (4.8.0)
@@ -278,6 +284,8 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     ssrf_filter (1.0.7)
+    terrapin (0.6.0)
+      climate_control (>= 0.0.3, < 1.0)
     thor (1.1.0)
     tilt (2.0.10)
     turbolinks (5.2.1)
@@ -319,6 +327,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   carrierwave (~> 1.0)
   carrierwave-aws
+  ckeditor (= 4.2.4)
   devise
   figaro
   jbuilder (~> 2.7)
@@ -341,4 +350,4 @@ RUBY VERSION
    ruby 2.7.0p0
 
 BUNDLED WITH
-   2.2.19
+   2.3.15

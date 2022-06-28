@@ -13,13 +13,19 @@
                       <div class="elementor-element elementor-element-55c4b485 elementor-widget elementor-widget-image" data-id="55c4b485" data-element_type="widget" data-widget_type="image.default">
                         <div class="elementor-widget-container">
                           <div class="elementor-image">
-                            <img src="/assets/manager1.jpeg" class="attachment-full size-full" alt="" loading="lazy" width="332" height="331">                      
+                            <% if @manager_photo.present? %>
+                              <%= image_tag(@manager_photo.image.url, class: "attachment-full size-full", loading: "lazy", width:"332", height: "331") %>
+                            <% else %>
+                              <img src="/assets/manager1.jpeg" class="attachment-full size-full" alt="" loading="lazy" width="332" height="331">
+                            <% end %>
                           </div>
                         </div>
                       </div>
                       <div class="elementor-element elementor-element-7f47409 elementor-widget elementor-widget-heading" data-id="7f47409" data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
-                          <h2 class="elementor-heading-title elementor-size-default">Mrs. Sarita Bhadauria<br></h2>
+                          <h2 class="elementor-heading-title elementor-size-default">
+                            <%= @manager_name.present? ? (raw @manager_name.description) : "MRS. SARITA BHADAURIA" %><br>
+                          </h2>
                           <h5>Chairperson</h5>
                         </div>
                       </div>
@@ -42,29 +48,35 @@
                                 <div class="elementor-widget-wrap">
                                   <div class="elementor-element elementor-element-1dea699b elementor-widget elementor-widget-text-editor" data-id="1dea699b" data-element_type="widget" data-widget_type="text-editor.default">
                                     <div class="elementor-widget-container">
+                                      <% if @manager_message.present? %>
                                       <div class="elementor-text-editor elementor-clearfix">
-                                        <p style="line-height: 25px;">
-                                          <h3 style="font-weight: bold;">
-                                            Dear Parents and Students
-                                            <br>
-                                            Greetings!
-                                          </h3>
-                                          <p>Warm Welcome to the Shakuntlam, 
-                                            As chairperson of the School I convey my immense pleasure in getting an opportunity to work and fruitfully interact with all staff men members, students and their parents. My Pleasure also to oversee the ongoing development of the school into an effective learning centre.</p>
-                                          <p>We believe each child is unique and school has been established to be a training ground for life. We believe in the genius lurking within every child, wanting to be discovered and transformed into not just a scientist, musician or a sports person but a complete individual who experiences the joys of life along the road. We believe in providing a wide range of extracurricular and sports activities to ensure our students get all rounded school experience.</p>
-                                          <p>We also believe in providing spiritual education through ancient Indian scriptures Vedic and Value Education as part of an all-round curriculum and help students to discover who they really are.</p>
-                                          <p>Aim of Shakuntlam International is to empower students to shape future. To help them realize their full potential on their studies and in their career. The Skills the students will develop during their time with us will  help them in good stead for the rest of their career and turn them into ;Global Leaders with Distinctive Indian Personality’.</p>
-                                          <p>Whatever is your background or ambition, as you weigh up your child’s options and how it will affect his/her life and career, we hope Shakuntlam International will play the role of ‘Destiny Makers’ for your child’s glorious future</p>
-                                        <br>
-                                        <h3 style="font-weight: bold; color: red;font-style: italic;">
-                                          “We Welcome you to join the Shakuntlam international School Family”
-                                        </h3>
-                                        <br><br>
-                                        <b>Yours truly
-                                        <br>
-                                        Mrs. Sarita Bhadauria
-                                        </b>
+                                        <%= raw @manager_message.description %>
                                       </div>
+                                      <% else %>
+                                        <div class="elementor-text-editor elementor-clearfix">
+                                          <p style="line-height: 25px;">
+                                            <h3 style="font-weight: bold;">
+                                              Dear Parents and Students
+                                              <br>
+                                              Greetings!
+                                            </h3>
+                                            <p>Warm Welcome to the Shakuntlam, 
+                                              As chairperson of the School I convey my immense pleasure in getting an opportunity to work and fruitfully interact with all staff men members, students and their parents. My Pleasure also to oversee the ongoing development of the school into an effective learning centre.</p>
+                                            <p>We believe each child is unique and school has been established to be a training ground for life. We believe in the genius lurking within every child, wanting to be discovered and transformed into not just a scientist, musician or a sports person but a complete individual who experiences the joys of life along the road. We believe in providing a wide range of extracurricular and sports activities to ensure our students get all rounded school experience.</p>
+                                            <p>We also believe in providing spiritual education through ancient Indian scriptures Vedic and Value Education as part of an all-round curriculum and help students to discover who they really are.</p>
+                                            <p>Aim of Shakuntlam International is to empower students to shape future. To help them realize their full potential on their studies and in their career. The Skills the students will develop during their time with us will  help them in good stead for the rest of their career and turn them into ;Global Leaders with Distinctive Indian Personality’.</p>
+                                            <p>Whatever is your background or ambition, as you weigh up your child’s options and how it will affect his/her life and career, we hope Shakuntlam International will play the role of ‘Destiny Makers’ for your child’s glorious future</p>
+                                          <br>
+                                          <h3 style="font-weight: bold; color: red;font-style: italic;">
+                                            “We Welcome you to join the Shakuntlam international School Family”
+                                          </h3>
+                                          <br><br>
+                                          <b>Yours truly
+                                          <br>
+                                          Mrs. Sarita Bhadauria
+                                          </b>
+                                        </div>
+                                      <% end %>
                                     </div>
                                   </div>
                                 </div>
@@ -86,13 +98,17 @@
                       <div class="elementor-element elementor-element-55c4b485 elementor-widget elementor-widget-image" data-id="55c4b485" data-element_type="widget" data-widget_type="image.default">
                         <div class="elementor-widget-container">
                           <div class="elementor-image">
-                            <img src="/assets/manager.jpg" class="attachment-full size-full" alt="" loading="lazy" width="332" height="331">                      
+                            <% if @director_photo.present? %>
+                              <%= image_tag(@director_photo.image.url, class: "attachment-full size-full", loading: "lazy", width:"332", height: "331") %>
+                            <% else %>
+                              <img src="/assets/manager.jpeg" class="attachment-full size-full" alt="" loading="lazy" width="332" height="331">
+                            <% end %>
                           </div>
                         </div>
                       </div>
                       <div class="elementor-element elementor-element-7f47409 elementor-widget elementor-widget-heading" data-id="7f47409" data-element_type="widget" data-widget_type="heading.default">
                         <div class="elementor-widget-container">
-                          <h2 class="elementor-heading-title elementor-size-default">Mr. ASHISH KUMAR SINGH<br></h2>
+                          <h2 class="elementor-heading-title elementor-size-default"><%= @director_name.present? ? (raw @director_name.description) : "Mr. ASHISH KUMAR SINGH" %><br><br></h2>
                           <h5>Vice chairman & Managing Trustee</h5>
                         </div>
                       </div>
@@ -115,29 +131,35 @@
                                 <div class="elementor-widget-wrap">
                                   <div class="elementor-element elementor-element-1dea699b elementor-widget elementor-widget-text-editor" data-id="1dea699b" data-element_type="widget" data-widget_type="text-editor.default">
                                     <div class="elementor-widget-container">
-                                      <div class="elementor-text-editor elementor-clearfix">
-                                        <p style="line-height: 25px;">
-                                          <h3 style="font-weight: bold;">
-                                            Dear Parents and Students
-                                            <br>
-                                            Greetings!
+                                      <% if @director_message.present? %>
+                                        <div class="elementor-text-editor elementor-clearfix">
+                                          <%= raw @director_message.description %>
+                                        </div>
+                                      <% else %>
+                                        <div class="elementor-text-editor elementor-clearfix">
+                                          <p style="line-height: 25px;">
+                                            <h3 style="font-weight: bold;">
+                                              Dear Parents and Students
+                                              <br>
+                                              Greetings!
+                                            </h3>
+                                            <p>For  us you and your child is the most valuable in our life. Your whole life you have worked so hard. Only so that you can provide the best  to your kids and you always dream that they grow up to be successful and respected citizens of the Country. At Shakuntlam International, we understand this,completely and we respect it too.</p>
+                                            <p>For we have the same dream as you for each one of our students. Our whole Shakuntlam family will consistently work to provide the best academic input and most hi-tech learning environment coupled with a deep respect for our Value system to groom each one of our students to become a success story so that they not only make us and you proud, but the whole country on being an Indian.</p>
+                                            <p>Also, we at Shakuntlam International believe in kindling fire in the minds of the students. The solution to every problem and challenge that we face, starts with education.</p>
+                                            <p>I would stress that it is quite essential that the education system be designed in such a manner that the experimental altitude and attitude of child is provided enough opportunity.</p>
+                                            <p>I am confident that School shall continue to enhance its collaborative culture of providing rich learning environment to face challenges adroitly by creating a human resource with cutting edge competencies to succeed in today’s era of globalization.</p>
+                                            <p>At last we can only say that we must give the message through action and deed, not alone by word. Word must be conjoined with deed.</p>
+                                          <br>
+                                          <h3 style="font-weight: bold; color: red;font-style: italic;">
+                                            “We invite you and your child to come and share the joys of learning with us”
                                           </h3>
-                                          <p>For  us you and your child is the most valuable in our life. Your whole life you have worked so hard. Only so that you can provide the best  to your kids and you always dream that they grow up to be successful and respected citizens of the Country. At Shakuntlam International, we understand this,completely and we respect it too.</p>
-                                          <p>For we have the same dream as you for each one of our students. Our whole Shakuntlam family will consistently work to provide the best academic input and most hi-tech learning environment coupled with a deep respect for our Value system to groom each one of our students to become a success story so that they not only make us and you proud, but the whole country on being an Indian.</p>
-                                          <p>Also, we at Shakuntlam International believe in kindling fire in the minds of the students. The solution to every problem and challenge that we face, starts with education.</p>
-                                          <p>I would stress that it is quite essential that the education system be designed in such a manner that the experimental altitude and attitude of child is provided enough opportunity.</p>
-                                          <p>I am confident that School shall continue to enhance its collaborative culture of providing rich learning environment to face challenges adroitly by creating a human resource with cutting edge competencies to succeed in today’s era of globalization.</p>
-                                          <p>At last we can only say that we must give the message through action and deed, not alone by word. Word must be conjoined with deed.</p>
-                                        <br>
-                                        <h3 style="font-weight: bold; color: red;font-style: italic;">
-                                          “We invite you and your child to come and share the joys of learning with us”
-                                        </h3>
-                                        <br><br>
-                                        <b>Yours truly
-                                        <br>
-                                        Mr. ASHISH KUMAR SINGH
-                                        </b>
-                                      </div>
+                                          <br><br>
+                                          <b>Yours truly
+                                          <br>
+                                          Mr. ASHISH KUMAR SINGH
+                                          </b>
+                                        </div>
+                                      <% end %>
                                     </div>
                                   </div>
                                 </div>

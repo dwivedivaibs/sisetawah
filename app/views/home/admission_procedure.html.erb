@@ -34,14 +34,18 @@
                       </div>
                       <section class="elementor-section elementor-inner-section elementor-element elementor-element-598c4622 elementor-section-height-min-height elementor-section-content-middle elementor-section-boxed elementor-section-height-default" data-id="598c4622" data-element_type="section">
                         <div class="container">
-                          <p style="color: black;font-size: 18px;">No candidate shall be admitted without an application in the prescribed form available from the school office.</p>
-                          <p style="color: black;font-size: 18px;">All students applying for the admission are subjected to an entrance test and an interview.</p>
-                          <br>
-                          <p style="color: black;font-size: 18px;">No admission form will be accepted unless all entries are duly completed. The date of birth once entered on the admission form cannot be changed</p><br>
-                          <p style="color: black;font-size: 18px;"> Children who are admitted in Nursery should not be less than two and half and more than four years of age on the 01 April of the year in which the admission is sought.</p><br>
-                          <p style="color: black;font-size: 18px;">Admission is the monopoly of school and assignment to a particular section of the class depends on the school authorities.</p><br>
-                          <p style="color: black;font-size: 18px;">Admission to PG / NC class is granted on the duly filled application form along with birth certificate either from the Hospital records Village Panchayat, Village Pradhan, or the Municipal corporation.</p><br>
-                          <p style="color: black;font-size: 18px;">The pupils who have already attended a recognized school and are seeking admission in this school have to submit the transfer certificate and progress report card of the school as they last attended. Without which their admission will not be considered.</p><br>
+                          <% if @admission_procedure.present? %>
+                            <div class="text-content"><%= raw @admission_procedure.description %></div>
+                          <% else %>
+                            <p style="color: black;font-size: 18px;">No candidate shall be admitted without an application in the prescribed form available from the school office.</p>
+                            <p style="color: black;font-size: 18px;">All students applying for the admission are subjected to an entrance test and an interview.</p>
+                            <br>
+                            <p style="color: black;font-size: 18px;">No admission form will be accepted unless all entries are duly completed. The date of birth once entered on the admission form cannot be changed</p><br>
+                            <p style="color: black;font-size: 18px;"> Children who are admitted in Nursery should not be less than two and half and more than four years of age on the 01 April of the year in which the admission is sought.</p><br>
+                            <p style="color: black;font-size: 18px;">Admission is the monopoly of school and assignment to a particular section of the class depends on the school authorities.</p><br>
+                            <p style="color: black;font-size: 18px;">Admission to PG / NC class is granted on the duly filled application form along with birth certificate either from the Hospital records Village Panchayat, Village Pradhan, or the Municipal corporation.</p><br>
+                            <p style="color: black;font-size: 18px;">The pupils who have already attended a recognized school and are seeking admission in this school have to submit the transfer certificate and progress report card of the school as they last attended. Without which their admission will not be considered.</p><br>
+                          <% end %>
                         </div>
                       </section>
                     </div>
