@@ -17,7 +17,7 @@ class Document < ApplicationRecord
     ["Parents Teacher Association", "ptm"],
     ["OASIS Report", "oasis"],
     ["Public Disclosure", "public_disclosure"],
-    ["Extension Letter", "extension_letter"]
+    ["Extension Letter", "extension_letter"],
     ["Land Certificate", "land_certificate"],
     ["Staff Details", "staff_details"],
     ["Official of Different Committee of the School", "committee"],
