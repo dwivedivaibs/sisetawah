@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_04_143247) do
+ActiveRecord::Schema.define(version: 2022_06_28_095222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,13 @@ ActiveRecord::Schema.define(version: 2021_06_04_143247) do
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource"
   end
 
+  create_table "contents", force: :cascade do |t|
+    t.text "description"
+    t.string "content_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "documents", force: :cascade do |t|
     t.string "name"
     t.string "file"
@@ -44,6 +51,7 @@ ActiveRecord::Schema.define(version: 2021_06_04_143247) do
     t.boolean "is_active", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "section"
   end
 
   create_table "gallery_videos", force: :cascade do |t|
@@ -53,6 +61,33 @@ ActiveRecord::Schema.define(version: 2021_06_04_143247) do
     t.boolean "is_active", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "section"
+  end
+
+  create_table "tc_entries", force: :cascade do |t|
+    t.string "tc_number"
+    t.string "student_name"
+    t.string "father_name"
+    t.string "mother_name"
+    t.string "nationality"
+    t.boolean "sc_st_obc"
+    t.datetime "dob"
+    t.string "result"
+    t.string "subjects"
+    t.string "last_class"
+    t.string "last_class_result"
+    t.boolean "qualified_for_promotion"
+    t.boolean "dues_paid"
+    t.boolean "ncc_cadets"
+    t.datetime "last_day_school"
+    t.string "leaving_reason"
+    t.string "total_meeting_attendance"
+    t.string "total_attendance"
+    t.string "general_conduct"
+    t.string "category"
+    t.datetime "certificate_issue_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

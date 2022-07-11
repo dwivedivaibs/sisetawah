@@ -31,7 +31,12 @@
                         <div class="elementor-widget-container">
                           <div class="elementor-text-editor elementor-clearfix">
                             <div>
-                              <object data="/assets/shakuntlam-fee-norms.pdf" type="application/pdf" width="300" height="700"></object>
+                              <% if @document && @document.file.url %>
+                                <object data="<%= asset_path(@document.file.url) %>" type="application/pdf" width="300" height="700">
+                                </object>
+                              <% else %>
+                                <object data="/assets/shakuntlam-fee-norms.pdf" type="application/pdf" width="300" height="700"></object>
+                              <% end %>
                             </div>
                           </div>
                         </div>

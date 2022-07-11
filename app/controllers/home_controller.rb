@@ -1,5 +1,36 @@
 class HomeController < ApplicationController
   def index
+    @banner_image = GalleryImage.active.where(section: 'banner').last
+    @slider_images = GalleryImage.active.where(section: 'slider')
+    @highlights_images = GalleryImage.active.where(section: 'highlight')
+    @about_image = GalleryImage.active.where(section: 'about_section').last
+    @photos = GalleryImage.active.where(section: 'photo_gallery')
+    @highlight_title_one = Content.where(content_type: 'highlight_title_one').last
+    @highlight_title_two = Content.where(content_type: 'highlight_title_two').last
+    @highlight_title_three = Content.where(content_type: 'highlight_title_three').last
+    @highlight_one = Content.where(content_type: 'highlight_one').last
+    @highlight_two = Content.where(content_type: 'highlight_two').last
+    @highlight_three = Content.where(content_type: 'highlight_three').last
+    @activity = Content.where(content_type: 'activities').last
+    @infrastructure = Content.where(content_type: 'infrastructure').last
+    @facilities = Content.where(content_type: 'facilities').last
+    @welcome_section = Content.where(content_type: 'welcome_section').last
+    @salient_features = Content.where(content_type: 'salient_features').last
+    @teacher_count = Content.where(content_type: 'teacher_count').last
+    @student_count = Content.where(content_type: 'student_count').last
+    @room_count = Content.where(content_type: 'room_count').last
+
+    @manager_name = Content.where(content_type: 'manager_name').last
+    @manager_message = Content.where(content_type: 'manager_message').last
+    @manager_photo = GalleryImage.active.where(section: 'manager_photo').last
+
+    @director_name = Content.where(content_type: 'director_name').last
+    @director_message = Content.where(content_type: 'director_message').last
+    @director_photo = GalleryImage.active.where(section: 'director_photo').last
+
+    @principal_name = Content.where(content_type: 'principal_name').last
+    @principal_message = Content.where(content_type: 'principal_message').last
+    @principal_photo = GalleryImage.active.where(section: 'principal_photo').last
   end
 
   def mission_vision
@@ -7,14 +38,23 @@ class HomeController < ApplicationController
   end
 
   def founders
-  	
+  	@manager_name = Content.where(content_type: 'manager_name').last
+    @manager_message = Content.where(content_type: 'manager_message').last
+    @manager_photo = GalleryImage.active.where(section: 'manager_photo').last
+
+    @director_name = Content.where(content_type: 'director_name').last
+    @director_message = Content.where(content_type: 'director_message').last
+    @director_photo = GalleryImage.active.where(section: 'director_photo').last
+    
   end
 
   def principal_message
-  	
+  	@principal_name = Content.where(content_type: 'principal_name').last
+    @principal_message = Content.where(content_type: 'principal_message').last
+    @principal_photo = GalleryImage.active.where(section: 'principal_photo').last
   end
   def committee
-  	
+  	@document = Document.find_by(name: "committee", is_active: true)
   end
   def faculty
   	
@@ -32,14 +72,14 @@ class HomeController < ApplicationController
   	
   end
   def book_list
-  	
+  	@document = Document.find_by(name: "book_list", is_active: true)
   end
 
   def admission_procedure
-  	
+  	@admission_procedure = Content.where(content_type: 'admission_procedure').last
   end
   def prospectus
-  	
+  	@document = Document.find_by(name: "prospectus", is_active: true)
   end
 
   def fee_stracture
@@ -89,7 +129,8 @@ class HomeController < ApplicationController
     
   end
   def about_us
-    
+    @about_us = Content.where(content_type: 'about_us').last
+    @digital_class = Content.where(content_type: 'digital_class').last
   end
   def committees
     @document = Document.find_by(name: "committees", is_active: true)

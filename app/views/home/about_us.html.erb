@@ -46,12 +46,16 @@
                       <div class="elementor-element elementor-element-b568a9a elementor-widget elementor-widget-text-editor">
                         <div class="elementor-widget-container">
                           <div class="elementor-text-editor elementor-clearfix">
-                            <p>“Be wise in the use of Time as lost time is never found again” The question is not How much Time do we have ? The question is “ What shall we do with it?</p>
-                            <p>Time management is an important aspect of human life, so that we not only do our work but also avoid unnecessary hurry and Tension. If we make a time- table and merge it effectively, we will find opportune in fulfillment but there is a need of determination and hard work to follow it.</p>
-                            <i><h3 style="color: red;">“This is the motto of  Shakuntlam ”.<br>
-                            “Learn from Yesterday, Live for today, Hope for tomorrow”<br>
-                            “Time Flies……….You’re the Pilot”</h3></i>
-                            <br><br>
+                            <% if @about_us.present? %>
+                              <div class="text-content"><%= raw @about_us.description %></div>
+                            <% else %>
+                              <p>“Be wise in the use of Time as lost time is never found again” The question is not How much Time do we have ? The question is “ What shall we do with it?</p>
+                              <p>Time management is an important aspect of human life, so that we not only do our work but also avoid unnecessary hurry and Tension. If we make a time- table and merge it effectively, we will find opportune in fulfillment but there is a need of determination and hard work to follow it.</p>
+                              <i><h3 style="color: red;">“This is the motto of  Shakuntlam ”.<br>
+                              “Learn from Yesterday, Live for today, Hope for tomorrow”<br>
+                              “Time Flies……….You’re the Pilot”</h3></i>
+                              <br><br>
+                            <% end %>
                             <section class="elementor-section elementor-top-section elementor-element elementor-element-d365130 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default">
                               <div class="elementor-container elementor-column-gap-default">
                                 <div class="elementor-row">
@@ -74,11 +78,15 @@
                                 <%= image_tag('smart_class.jpg') %>
                               </div>
                               <div class="col-md-6">
-                                <p>The teachers’ computers in all digital class rooms are connected to a dedicated server installed in the Knowledge Centre through a campus-wide network. A powerful digital class application engine allows teachers to view and map relevant digital content for their classroom sessions as per their time tables and syllabus.</p>
+                                <% if @digital_class.present? %>
+                                  <div class="text-content"><%= raw @digital_class.description %></div>
+                                <% else %>
+                                  <p>The teachers’ computers in all digital class rooms are connected to a dedicated server installed in the Knowledge Centre through a campus-wide network. A powerful digital class application engine allows teachers to view and map relevant digital content for their classroom sessions as per their time tables and syllabus.</p>
 
-                                <p>Existing classrooms are converted into technology-enabled digital class rooms equipped with digital class Interactive Digiboard Systems or digital class with a PC connected to a dedicated digital class Knowledge Centre inside the school campus.</p>
+                                  <p>Existing classrooms are converted into technology-enabled digital class rooms equipped with digital class Interactive Digiboard Systems or digital class with a PC connected to a dedicated digital class Knowledge Centre inside the school campus.</p>
 
-                                <p>The vast repository of curriculum-based digital content developed and aggregated by Teach next is made available to teachers for use in the digital class rooms. The digital content is present in a Teacher-led format and is mapped to the curriculum</p>
+                                  <p>The vast repository of curriculum-based digital content developed and aggregated by Teach next is made available to teachers for use in the digital class rooms. The digital content is present in a Teacher-led format and is mapped to the curriculum</p>
+                                <% end %>
                               </div>
                             </div>
                           </div>

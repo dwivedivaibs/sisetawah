@@ -67,3 +67,5 @@ gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
 gem 'aws-sdk-rails'
 gem 'figaro'
+
+gem 'ckeditor', '4.2.4'
