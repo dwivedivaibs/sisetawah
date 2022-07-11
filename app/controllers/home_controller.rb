@@ -95,6 +95,10 @@ class HomeController < ApplicationController
     @document = Document.find_by(name: "committees", is_active: true)
   end
 
+  def extension_letter
+    @document = Document.find_by(name: "extension_letter", is_active: true)
+  end
+
   def ptm
     @document = Document.find_by(name: "ptm", is_active: true)
   end

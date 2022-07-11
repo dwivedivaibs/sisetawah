@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   get 'home/vacancy'
   get 'home/ptm'
   get 'home/public_disclosure'
+  get 'home/extension_letter'
 
   resource :gallery_images, only: :show
   resource :gallery_videos, only: :show

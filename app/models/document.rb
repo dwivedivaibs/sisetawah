@@ -17,7 +17,8 @@ class Document < ApplicationRecord
     ["Society/Trust Member", "committees"],
     ["Parents Teacher Association", "ptm"],
     ["OASIS Report", "oasis"],
-    ["Public Disclosure", "public_disclosure"]
+    ["Public Disclosure", "public_disclosure"],
+    ["Extension Letter", "extension_letter"]
   ]
 
   validates :name, presence: true
