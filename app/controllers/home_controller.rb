@@ -75,6 +75,10 @@ class HomeController < ApplicationController
   	@document = Document.find_by(name: "book_list", is_active: true)
   end
 
+  def annual_report
+    @document = Document.find_by(name: "annual_report", is_active: true)
+  end
+
   def admission_procedure
   	@admission_procedure = Content.where(content_type: 'admission_procedure').last
   end
@@ -90,7 +94,7 @@ class HomeController < ApplicationController
   	
   end
   def tc_entries
-  	
+  	@document = Document.find_by(name: "tc_format", is_active: true)
   end
   def activities_compatitions
   	

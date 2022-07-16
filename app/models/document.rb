@@ -23,7 +23,9 @@ class Document < ApplicationRecord
     ["Official of Different Committee of the School", "committee"],
     ["School committees stracture", "committee_stracture"],
     ["PROSPECTUS", "prospectus"],
-    ["Student Details", "student_details"]
+    ["Student Details", "student_details"],
+    ["Annual Report", "annual_report"],
+    ["Sample TC Format", "tc_format"]
   ]
 
   validates :name, presence: true
