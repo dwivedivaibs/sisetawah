@@ -56,8 +56,9 @@ class HomeController < ApplicationController
   def committee
   	@document = Document.find_by(name: "committee", is_active: true)
   end
+
   def faculty
-  	
+  	@document = Document.find_by(name: "staff_details", is_active: true)
   end
 
   def oasis
@@ -91,7 +92,7 @@ class HomeController < ApplicationController
   end
 
   def student_strength
-  	
+  	@document = Document.find_by(name: "student_details", is_active: true)
   end
   def tc_entries
   	@document = Document.find_by(name: "tc_format", is_active: true)
