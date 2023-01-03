@@ -1,5 +1,5 @@
 # Change these
-server '44.204.71.115', port: 22, roles: [:web, :app, :db], primary: true
+server '15.207.108.156', port: 22, roles: [:web, :app, :db], primary: true
 
 set :repo_url,'git@github.com:dwivedivaibs/sisetawah.git'
 set :application,     'sisetawah'
