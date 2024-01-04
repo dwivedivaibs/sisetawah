@@ -346,7 +346,6 @@ ActiveAdmin.setup do |config|
     admin.logout_link_method = :delete
     admin.authentication_adapter = ActiveAdmin::Devise.authentication_adapter
     admin.i18n_scope = 'admin'
-    admin.authorization_adapter = ActiveAdmin::CanCanAdapter
     admin.localize_format = :long
     admin.download_links = false
     admin.batch_actions = true
@@ -361,5 +360,4 @@ ActiveAdmin.setup do |config|
   config.localize_format = :long
   config.allow_comments = false
   config.force_ssl = false
-  config.authorization_adapter = ActiveAdmin::CanCanAdapter
 end
