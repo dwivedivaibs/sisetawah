@@ -334,4 +334,32 @@ ActiveAdmin.setup do |config|
   # You can switch to using Webpacker here.
   #
   # config.use_webpacker = true
+
+  config.default_namespace = false
+  config.logout_link_path = :destroy_user_session_path
+  config.logout_link_method = :delete
+  config.root_to = 'admin/dashboard#index'
+  config.namespace :admin do |admin|
+    admin.authentication_method = :authenticate_admin_user!
+    admin.current_user_method = :current_admin_user
+    admin.logout_link_path = :destroy_admin_user_session_path
+    admin.logout_link_method = :delete
+    admin.authentication_adapter = ActiveAdmin::Devise.authentication_adapter
+    admin.i18n_scope = 'admin'
+    admin.authorization_adapter = ActiveAdmin::CanCanAdapter
+    admin.localize_format = :long
+    admin.download_links = false
+    admin.batch_actions = true
+    admin.build_menu do |menu|
+      menu.add label: 'Custom Label', priority: 1
+    end
+  end
+  config.authentication_method = :authenticate_user!
+  config.current_user_method = :current_user
+  config.logout_link_path = :destroy_user_session_path
+  config.logout_link_method = :delete
+  config.localize_format = :long
+  config.allow_comments = false
+  config.force_ssl = false
+  config.authorization_adapter = ActiveAdmin::CanCanAdapter
 end
