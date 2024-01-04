@@ -335,25 +335,4 @@ ActiveAdmin.setup do |config|
   #
   # config.use_webpacker = true
 
-  config.default_namespace = false
-  config.logout_link_path = :destroy_user_session_path
-  config.logout_link_method = :delete
-  config.root_to = 'admin/dashboard#index'
-  config.namespace :admin do |admin|
-    admin.authentication_method = :authenticate_admin_user!
-    admin.current_user_method = :current_admin_user
-    admin.logout_link_path = :destroy_admin_user_session_path
-    admin.logout_link_method = :delete
-    admin.i18n_scope = 'admin'
-    admin.localize_format = :long
-    admin.download_links = false
-    admin.batch_actions = true
-  end
-  config.authentication_method = :authenticate_user!
-  config.current_user_method = :current_user
-  config.logout_link_path = :destroy_user_session_path
-  config.logout_link_method = :delete
-  config.localize_format = :long
-  config.allow_comments = false
-  config.force_ssl = false
 end
